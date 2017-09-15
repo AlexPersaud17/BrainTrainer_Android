@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.GridLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -16,6 +17,7 @@ public class MainActivity extends AppCompatActivity {
 
     RelativeLayout mainMenu;
     RelativeLayout gameBoard;
+    GridLayout answerChoices;
 
     Button startAddition;
     Button startSubtraction;
@@ -76,6 +78,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onFinish() {
                 playAgain.setVisibility(View.VISIBLE);
+                answerChoices.setVisibility(View.INVISIBLE);
                 timer.setText("0s");
                 result.setText("Your score: " + Integer.toString(score) + "/" + Integer.toString(totalQuestions));
             }
@@ -192,5 +195,6 @@ public class MainActivity extends AppCompatActivity {
 
         gameBoard = (RelativeLayout) findViewById(R.id.gameBoard);
         mainMenu = (RelativeLayout) findViewById(R.id.mainMenu);
+        answerChoices = (GridLayout) findViewById(R.id.answerChoices);
     }
 }
