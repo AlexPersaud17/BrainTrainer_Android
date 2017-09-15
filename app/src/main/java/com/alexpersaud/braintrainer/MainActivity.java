@@ -35,6 +35,8 @@ public class MainActivity extends AppCompatActivity {
 
     Button playAgain;
 
+    CountDownTimer countDown;
+
     ArrayList<Integer> answers = new ArrayList<Integer>();
 
     int locationOfCorrectAnswer;
@@ -48,12 +50,11 @@ public class MainActivity extends AppCompatActivity {
         playAgain(findViewById(R.id.playAgain));
     }
 
-//    public void start(View view){
-//        startButton.setVisibility(View.INVISIBLE);
-//        gameBoard.setVisibility((View.VISIBLE));
-//        playAgain(findViewById(R.id.playAgain));
-//
-//    }
+    public void backToMainMenu(View view){
+        mainMenu.setVisibility(View.VISIBLE);
+        gameBoard.setVisibility(View.INVISIBLE);
+        countDown.cancel();
+    }
 
     public void playAgain(View view){
         score = 0;
@@ -65,7 +66,7 @@ public class MainActivity extends AppCompatActivity {
 
         generateQuestion();
 
-        new CountDownTimer(30000, 1000){
+        countDown = new CountDownTimer(30000, 1000){
 
             @Override
             public void onTick(long millisUntilFinished) {
@@ -96,7 +97,7 @@ public class MainActivity extends AppCompatActivity {
         }else if(operator.equals("/")){
             operation = "/";
         }
-        
+
         question.setText(Integer.toString(x) + operation + Integer.toString(y));
 
         locationOfCorrectAnswer = rand.nextInt(4);

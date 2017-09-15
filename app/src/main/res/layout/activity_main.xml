@@ -192,6 +192,15 @@
             android:text="Play Again!"
             android:visibility="invisible" />
 
+        <Button
+            android:id="@+id/backToMainMenu"
+            android:layout_above="@id/playAgain"
+            android:layout_centerHorizontal="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="backToMainMenu"
+            android:text="Main Menu" />
+
         <TextView
             android:id="@+id/points"
             android:layout_width="wrap_content"
